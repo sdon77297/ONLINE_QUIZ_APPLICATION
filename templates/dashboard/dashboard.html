@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% block title %}Dashboard | Online Quiz Application{% endblock %}
+{% block content %}
+<section class="app-layout">
+    {% include 'includes/sidebar.html' %}
+    <div class="dashboard-main">
+        <div class="dashboard-top">
+            <button class="icon-btn d-lg-none" id="sidebarOpen" type="button" aria-label="Open sidebar"><i class="fa-solid fa-bars"></i></button>
+            <div><span class="eyebrow">Student dashboard</span><h1>Welcome back, {{ user.full_name|default:user.username|default:"Learner" }}</h1></div>
+            <div class="dropdown">
+                <button class="icon-btn notification-btn" data-bs-toggle="dropdown" aria-label="Open notifications"><i class="fa-regular fa-bell"></i><span></span></button>
+                <div class="dropdown-menu dropdown-menu-end p-3 notification-menu"><strong>Notifications</strong><p class="mb-0 mt-2">Python mock test starts tomorrow.</p></div>
+            </div>
+        </div>
+        <div class="welcome-card glass-card" data-aos="fade-up"><div><h2>Your weekly learning streak is strong</h2><p>Complete two more quizzes to reach the top 10% of learners this week.</p></div><a class="btn btn-light" href="{% url 'quiz_list' %}">Continue Practice</a></div>
+        <div class="quick-actions" data-aos="fade-up">
+            <a href="{% url 'quiz_list' %}"><i class="fa-solid fa-play"></i><span>Start Quiz</span></a>
+            <a href="{% url 'courses' %}"><i class="fa-solid fa-compass"></i><span>Browse Courses</span></a>
+            <a href="{% url 'result_history' %}"><i class="fa-solid fa-chart-line"></i><span>View Analytics</span></a>
+            <a href="#"><i class="fa-solid fa-calendar-check"></i><span>Study Plan</span></a>
+        </div>
+        <div class="row g-4 my-1">
+            <div class="col-sm-6 col-xl-3"><div class="metric-card"><i class="fa-solid fa-layer-group"></i><span>Total Courses</span><strong>{{ total_courses }}</strong></div></div>
+            <div class="col-sm-6 col-xl-3"><div class="metric-card"><i class="fa-solid fa-list-check"></i><span>Total Quizzes</span><strong>{{ total_quizzes }}</strong></div></div>
+            <div class="col-sm-6 col-xl-3"><div class="metric-card"><i class="fa-solid fa-circle-check"></i><span>Completed</span><strong>{{ completed_quizzes }}</strong></div></div>
+            <div class="col-sm-6 col-xl-3"><div class="metric-card"><i class="fa-solid fa-star"></i><span>Avg Score</span><strong>{{ average_score }}%</strong></div></div>
+        </div>
+        <div class="row g-4">
+            <div class="col-xl-8"><div class="panel-card"><div class="panel-head"><h5>Quiz Performance</h5><span>Last 6 attempts</span></div><canvas id="performanceChart" height="120"></canvas></div></div>
+            <div class="col-xl-4"><div class="panel-card"><div class="panel-head"><h5>Leaderboard</h5><span>Weekly</span></div><ol class="leaderboard"><li><b>Riya</b><span>980</span></li><li><b>You</b><span>940</span></li><li><b>Dev</b><span>910</span></li></ol></div></div>
+            <div class="col-xl-7"><div class="panel-card"><div class="panel-head"><h5>Recent Activity</h5><span>Latest results</span></div>{% for item in recent_results %}<div class="activity-row"><div><strong>{{ item.quiz }}</strong><small>{{ item.course }} - {{ item.date }}</small></div><span>{{ item.score }}%</span></div>{% endfor %}</div></div>
+            <div class="col-xl-5"><div class="panel-card"><div class="panel-head"><h5>Upcoming Quizzes</h5><span>This week</span></div><div class="upcoming"><p><i class="fa-brands fa-python"></i> Python OOP Mock <span>26 May</span></p><p><i class="fa-solid fa-code"></i> JavaScript DOM <span>28 May</span></p><p><i class="fa-solid fa-database"></i> SQL Joins <span>30 May</span></p></div></div></div>
+        </div>
+    </div>
+</section>
+{% endblock %}

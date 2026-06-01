@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+{% block title %}Quiz | Online Quiz Application{% endblock %}
+{% block content %}
+<section class="quiz-shell">
+    <div class="container-fluid">
+        <div class="quiz-header glass-card">
+            <div><span class="eyebrow">Mock assessment</span><h1>Python Fundamentals Quiz</h1></div>
+            <div class="timer" id="quizTimer" data-minutes="15"><i class="fa-regular fa-clock"></i><span>15:00</span></div>
+        </div>
+        <div class="row g-4">
+            <div class="col-xl-8">
+                <div class="question-card glass-card">
+                    <div class="d-flex justify-content-between align-items-center mb-3"><span class="badge text-bg-primary">Question <b id="questionNumber">1</b>/5</span><span id="autosaveStatus"><i class="fa-solid fa-cloud-arrow-up me-1"></i>Auto-saved</span></div>
+                    <div class="progress quiz-progress mb-4"><div id="quizProgress" style="width:20%"></div></div>
+                    <h2 id="questionText">Which keyword is used to define a function in Python?</h2>
+                    <div class="option-list" id="optionList">
+                        <label><input type="radio" name="answer"><span>func</span></label>
+                        <label><input type="radio" name="answer"><span>def</span></label>
+                        <label><input type="radio" name="answer"><span>lambda</span></label>
+                        <label><input type="radio" name="answer"><span>method</span></label>
+                    </div>
+                    <div class="quiz-actions">
+                        <button class="btn btn-light" id="prevQuestion"><i class="fa-solid fa-arrow-left me-2"></i>Previous</button>
+                        <button class="btn btn-primary gradient-btn" id="nextQuestion">Next<i class="fa-solid fa-arrow-right ms-2"></i></button>
+                        <button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#submitModal">Submit</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-4">
+                <aside class="palette-card glass-card">
+                    <h5>Question Palette</h5>
+                    <div class="palette" id="questionPalette"><button class="active">1</button><button>2</button><button>3</button><button>4</button><button>5</button></div>
+                    <div class="legend"><span><i class="answered"></i>Answered</span><span><i class="active"></i>Current</span><span><i></i>Not visited</span></div>
+                </aside>
+            </div>
+        </div>
+    </div>
+</section>
+<div class="modal fade" id="submitModal" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header"><h5 class="modal-title">Submit quiz?</h5><button class="btn-close" data-bs-dismiss="modal"></button></div>
+            <div class="modal-body">Review your answers before submitting. Unanswered questions will be marked as skipped.</div>
+            <div class="modal-footer"><button class="btn btn-light" data-bs-dismiss="modal">Review</button><a class="btn btn-primary gradient-btn" href="{% url 'result_history' %}">Submit Now</a></div>
+        </div>
+    </div>
+</div>
+{% endblock %}

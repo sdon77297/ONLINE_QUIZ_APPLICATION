@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{% block title %}Results | Online Quiz Application{% endblock %}
+{% block content %}
+<section class="page-hero compact result-hero">
+    <div class="container"><span class="eyebrow">Performance report</span><h1>Your latest quiz result</h1><p>Clear score breakdown, rank, and improvement insights for your next attempt.</p></div>
+</section>
+<section class="section-pad pt-4">
+    <div class="container">
+        <div class="row g-4">
+            <div class="col-lg-4"><div class="score-card glass-card"><canvas id="resultChart" width="220" height="220"></canvas><h2><span class="counter" data-target="86">0</span>%</h2><p>Excellent progress. Keep strengthening speed and accuracy.</p><span class="rank-badge"><i class="fa-solid fa-crown"></i> Rank #12</span></div></div>
+            <div class="col-lg-8">
+                <div class="row g-4">
+                    <div class="col-sm-4"><div class="metric-card success"><i class="fa-solid fa-check"></i><span>Correct</span><strong>43</strong></div></div>
+                    <div class="col-sm-4"><div class="metric-card danger"><i class="fa-solid fa-xmark"></i><span>Wrong</span><strong>7</strong></div></div>
+                    <div class="col-sm-4"><div class="metric-card warning"><i class="fa-solid fa-forward"></i><span>Skipped</span><strong>0</strong></div></div>
+                </div>
+                <div class="panel-card mt-4">
+                    <div class="panel-head"><h5>Performance Analysis</h5><span>Topic wise</span></div>
+                    <div class="analysis-row"><span>Python Basics</span><div class="progress"><div style="width:92%"></div></div><b>92%</b></div>
+                    <div class="analysis-row"><span>OOP</span><div class="progress"><div style="width:78%"></div></div><b>78%</b></div>
+                    <div class="analysis-row"><span>Exceptions</span><div class="progress"><div style="width:84%"></div></div><b>84%</b></div>
+                </div>
+                <div class="d-flex flex-wrap gap-3 mt-4">
+                    <button class="btn btn-primary gradient-btn"><i class="fa-solid fa-file-pdf me-2"></i>Download PDF</button>
+                    <button class="btn btn-light"><i class="fa-solid fa-share-nodes me-2"></i>Share Result</button>
+                    <a class="btn btn-outline-primary" href="{% url 'quiz_list' %}">Retake Quiz</a>
+                </div>
+            </div>
+        </div>
+        <div class="row g-4 mt-1">
+            <div class="col-md-4"><div class="summary-card"><i class="fa-solid fa-stopwatch"></i><span>Time Taken</span><strong>12m 40s</strong></div></div>
+            <div class="col-md-4"><div class="summary-card"><i class="fa-solid fa-bullseye"></i><span>Accuracy</span><strong>86%</strong></div></div>
+            <div class="col-md-4"><div class="summary-card"><i class="fa-solid fa-arrow-trend-up"></i><span>Improvement</span><strong>+14%</strong></div></div>
+        </div>
+        <div class="panel-card mt-4">
+            <div class="panel-head"><h5>Result History</h5><span>Demo data</span></div>
+            {% if results %}
+                {% for result in results %}<div class="activity-row"><div><strong>{{ result.quiz }}</strong><small>{{ result.submitted_at }}</small></div><span>{{ result.score }}</span></div>{% endfor %}
+            {% else %}
+                <div class="empty-state">No saved results yet. Your completed quiz attempts will appear here.</div>
+            {% endif %}
+        </div>
+    </div>
+</section>
+{% endblock %}

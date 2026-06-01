@@ -1,0 +1,7 @@
+{% if messages %}
+    <div class="toast-wrap">
+        {% for message in messages %}
+            <div class="alert alert-{{ message.tags|default:'info' }} shadow-sm mb-2 animate__animated animate__fadeInRight">{{ message }}</div>
+        {% endfor %}
+    </div>
+{% endif %}

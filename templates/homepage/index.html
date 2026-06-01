@@ -1,0 +1,102 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Online Quiz Application | Premium Quiz Learning{% endblock %}
+{% block content %}
+<section class="hero-section">
+    <div class="container">
+        <div class="row align-items-center g-5">
+            <div class="col-lg-6" data-aos="fade-up">
+                <span class="eyebrow">Personalized test prep platform</span>
+                <h1>Master every topic with <span id="typedText">adaptive quizzes</span></h1>
+                <p class="hero-copy">Practice aptitude, coding, web development, DSA, and AI/ML with guided mock tests, analytics, leaderboards, and progress tracking.</p>
+                <div class="d-flex flex-wrap gap-3">
+                    <a class="btn btn-primary btn-lg gradient-btn ripple" href="{% url 'register' %}">Start Learning</a>
+                    <a class="btn btn-light btn-lg soft-btn" href="{% url 'courses' %}">Explore Courses</a>
+                </div>
+                <div class="hero-metrics">
+                    <div><strong class="counter" data-target="25000">0</strong><span>Learners</span></div>
+                    <div><strong class="counter" data-target="900">0</strong><span>Quizzes</span></div>
+                    <div><strong class="counter" data-target="96">0</strong><span>Success rate</span></div>
+                </div>
+            </div>
+            <div class="col-lg-6" data-aos="zoom-in">
+                <div class="hero-visual glass-card">
+                    <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=900&q=80" alt="Students learning online" class="img-fluid rounded-4">
+                    <div class="floating-card top-card"><i class="fa-solid fa-bolt"></i><span>Live score 92%</span></div>
+                    <div class="floating-card bottom-card"><i class="fa-solid fa-chart-line"></i><span>+18% weekly progress</span></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section-pad">
+    <div class="container">
+        <div class="section-heading" data-aos="fade-up"><span>Why learners choose us</span><h2>Everything needed for confident exam practice</h2></div>
+        <div class="row g-4">
+            <div class="col-md-6 col-lg-3" data-aos="fade-up"><div class="feature-card"><i class="fa-solid fa-brain"></i><h5>Adaptive quizzes</h5><p>Difficulty adjusts with your performance so every attempt moves you forward.</p></div></div>
+            <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="100"><div class="feature-card"><i class="fa-solid fa-stopwatch"></i><h5>Timed exams</h5><p>Practice in realistic exam conditions with timer, palette, and review states.</p></div></div>
+            <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="200"><div class="feature-card"><i class="fa-solid fa-chart-pie"></i><h5>Deep analytics</h5><p>Track weak areas, accuracy, speed, and topic-level readiness.</p></div></div>
+            <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="300"><div class="feature-card"><i class="fa-solid fa-trophy"></i><h5>Leaderboards</h5><p>Compete with peers and stay motivated through visible rank gains.</p></div></div>
+        </div>
+    </div>
+</section>
+
+<section class="section-pad muted-section">
+    <div class="container">
+        <div class="section-heading" data-aos="fade-up"><span>Popular categories</span><h2>Practice tracks built for placements and exams</h2></div>
+        <div class="category-grid">
+            <a class="category-card" href="{% url 'courses' %}" data-aos="fade-up"><i class="fa-brands fa-python"></i><h5>Python</h5><p>Basics to OOP</p></a>
+            <a class="category-card" href="{% url 'courses' %}" data-aos="fade-up"><i class="fa-brands fa-java"></i><h5>Java</h5><p>Core and advanced</p></a>
+            <a class="category-card" href="{% url 'courses' %}" data-aos="fade-up"><i class="fa-solid fa-c"></i><h5>C Programming</h5><p>Logic and pointers</p></a>
+            <a class="category-card" href="{% url 'courses' %}" data-aos="fade-up"><i class="fa-solid fa-code"></i><h5>Web Development</h5><p>HTML, CSS, JS</p></a>
+            <a class="category-card" href="{% url 'courses' %}" data-aos="fade-up"><i class="fa-solid fa-calculator"></i><h5>Aptitude</h5><p>Quant, logic, verbal</p></a>
+            <a class="category-card" href="{% url 'courses' %}" data-aos="fade-up"><i class="fa-solid fa-diagram-project"></i><h5>Data Structures</h5><p>Arrays to graphs</p></a>
+            <a class="category-card" href="{% url 'courses' %}" data-aos="fade-up"><i class="fa-solid fa-robot"></i><h5>AI/ML</h5><p>Models and metrics</p></a>
+        </div>
+    </div>
+</section>
+
+<section class="section-pad">
+    <div class="container">
+        <div class="section-heading" data-aos="fade-up"><span>Popular courses</span><h2>High-impact preparation paths</h2></div>
+        <div class="row g-4">
+            <div class="col-md-6 col-xl-4" data-aos="fade-up"><article class="course-card"><img src="https://images.unsplash.com/photo-1526379095098-d400fd0bf935?auto=format&fit=crop&w=700&q=80" alt="Python course"><div><span>Programming</span><h5>Python Interview Prep</h5><p>Practice syntax, OOP, exceptions, and library questions.</p><div class="rating"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i> <small>4.9</small></div><a class="btn btn-primary gradient-btn" href="{% url 'courses' %}">View Course</a></div></article></div>
+            <div class="col-md-6 col-xl-4" data-aos="fade-up" data-aos-delay="100"><article class="course-card"><img src="https://images.unsplash.com/photo-1555949963-aa79dcee981d?auto=format&fit=crop&w=700&q=80" alt="Data structures course"><div><span>Data Structures</span><h5>DSA Placement Bootcamp</h5><p>Arrays, stacks, queues, trees, graphs, and complexity.</p><div class="rating"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i> <small>4.8</small></div><a class="btn btn-primary gradient-btn" href="{% url 'courses' %}">View Course</a></div></article></div>
+            <div class="col-md-6 col-xl-4" data-aos="fade-up" data-aos-delay="200"><article class="course-card"><img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=700&q=80" alt="Web development course"><div><span>Web</span><h5>Frontend Quiz Sprint</h5><p>HTML, CSS, Bootstrap, JavaScript, and browser APIs.</p><div class="rating"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i> <small>4.7</small></div><a class="btn btn-primary gradient-btn" href="{% url 'courses' %}">View Course</a></div></article></div>
+        </div>
+    </div>
+</section>
+
+<section class="section-pad muted-section">
+    <div class="container">
+        <div id="testimonialCarousel" class="carousel slide glass-card testimonial-card" data-bs-ride="carousel" data-aos="fade-up">
+            <div class="carousel-inner">
+                <div class="carousel-item active"><p>"The dashboard made my weak topics obvious. My mock test score improved within two weeks."</p><h6>Priya Sharma, CSE Student</h6></div>
+                <div class="carousel-item"><p>"The quiz interface feels like a real exam portal. Timer, palette, progress, everything is clean."</p><h6>Arjun Mehta, Placement Aspirant</h6></div>
+                <div class="carousel-item"><p>"Courses and quizzes are organized beautifully. It is simple to keep a daily practice habit."</p><h6>Nisha Rao, Java Learner</h6></div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#testimonialCarousel" data-bs-slide="prev"><span class="carousel-control-prev-icon"></span></button>
+            <button class="carousel-control-next" type="button" data-bs-target="#testimonialCarousel" data-bs-slide="next"><span class="carousel-control-next-icon"></span></button>
+        </div>
+    </div>
+</section>
+
+<section class="section-pad">
+    <div class="container">
+        <div class="section-heading" data-aos="fade-up"><span>FAQ</span><h2>Everything learners ask before starting</h2></div>
+        <div class="accordion faq-accordion" id="faqAccordion" data-aos="fade-up">
+            <div class="accordion-item"><h3 class="accordion-header"><button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faqOne">Can I practice free quizzes?</button></h3><div id="faqOne" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion"><div class="accordion-body">Yes. The platform is designed with free practice tracks and premium-ready course structures.</div></div></div>
+            <div class="accordion-item"><h3 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqTwo">Does the quiz interface support timed exams?</button></h3><div id="faqTwo" class="accordion-collapse collapse" data-bs-parent="#faqAccordion"><div class="accordion-body">Yes. The quiz screen includes a timer, question palette, answer states, progress bar, and submit confirmation.</div></div></div>
+            <div class="accordion-item"><h3 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqThree">Is this ready for Django backend integration?</button></h3><div id="faqThree" class="accordion-collapse collapse" data-bs-parent="#faqAccordion"><div class="accordion-body">Yes. Templates use Django inheritance, static files, URL names, CSRF tokens, and messages.</div></div></div>
+        </div>
+    </div>
+</section>
+
+<section class="cta-band">
+    <div class="container d-lg-flex align-items-center justify-content-between gap-4">
+        <div><span class="eyebrow">Ready for your next score jump?</span><h2>Take a diagnostic quiz today.</h2></div>
+        <a class="btn btn-light btn-lg ripple" href="{% url 'quiz_list' %}">Launch Quiz</a>
+    </div>
+</section>
+{% endblock %}

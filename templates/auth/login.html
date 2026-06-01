@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Login | Online Quiz Application{% endblock %}
+{% block content %}
+<section class="auth-section">
+    <div class="container">
+        <div class="auth-shell glass-card">
+            <div class="auth-art">
+                <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=900&q=80" alt="Online learning dashboard">
+                <div><h2>Welcome back</h2><p>Continue your preparation streak with fresh quizzes and performance insights.</p></div>
+            </div>
+            <form class="auth-form needs-validation" method="post" novalidate>
+                {% csrf_token %}
+                <span class="eyebrow">Student login</span>
+                <h1>Sign in to QuizCraft</h1>
+                <div class="form-floating mb-3"><input class="form-control" id="username" name="username" placeholder="Email or username" required><label for="username">Email or username</label><div class="invalid-feedback">Enter your email or username.</div></div>
+                <div class="input-group mb-3 password-wrap"><div class="form-floating"><input type="password" class="form-control" id="loginPassword" name="password" placeholder="Password" required><label for="loginPassword">Password</label></div><button class="btn btn-outline-secondary toggle-password" type="button" data-target="loginPassword"><i class="fa-regular fa-eye"></i></button></div>
+                <div class="d-flex justify-content-between align-items-center mb-3"><div class="form-check"><input class="form-check-input" type="checkbox" id="remember"><label class="form-check-label" for="remember">Remember me</label></div><a href="{% url 'forgot_password' %}">Forgot password?</a></div>
+                <button class="btn btn-primary w-100 gradient-btn ripple" type="submit">Login</button>
+                <button class="btn btn-light w-100 mt-3 google-btn" type="button"><i class="fa-brands fa-google me-2"></i>Continue with Google</button>
+                <p class="text-center mt-4 mb-0">New here? <a href="{% url 'register' %}">Create an account</a></p>
+            </form>
+        </div>
+    </div>
+</section>
+{% endblock %}

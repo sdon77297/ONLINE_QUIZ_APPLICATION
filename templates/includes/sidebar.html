@@ -1,0 +1,9 @@
+<aside class="dashboard-sidebar" id="sidebar">
+    <button class="icon-btn d-lg-none mb-3" id="sidebarClose" type="button" aria-label="Close sidebar"><i class="fa-solid fa-xmark"></i></button>
+    <a class="active" href="{% url 'dashboard' %}"><i class="fa-solid fa-table-columns"></i>Overview</a>
+    <a href="{% url 'courses' %}"><i class="fa-solid fa-book-open"></i>Courses</a>
+    <a href="{% url 'quiz_list' %}"><i class="fa-solid fa-clipboard-question"></i>Quizzes</a>
+    <a href="{% url 'result_history' %}"><i class="fa-solid fa-chart-simple"></i>Results</a>
+    <a href="#"><i class="fa-solid fa-bell"></i>Notifications</a>
+    <a href="#"><i class="fa-solid fa-gear"></i>Settings</a>
+</aside>
