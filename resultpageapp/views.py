@@ -8,7 +8,7 @@ def result_history(request):
 
     results = Result.objects.filter(
         student=request.user
-    ).order_by('-submitted_at')
+    ).order_by('-created_at')
 
     return render(
         request,
