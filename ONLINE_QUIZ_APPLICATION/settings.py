@@ -25,8 +25,11 @@ SECRET_KEY = 'django-insecure-hwdnzfdvx4#elg$!5p4ipp9fj(7jk)*ro%!&u)-+_og^292-=#
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["*"]
-
+ALLOWED_HOSTS = [
+    "online-quiz-application-a5c6.onrender.com",
+    "localhost",
+    "127.0.0.1",
+]
 # Application definition
 
 INSTALLED_APPS = [
@@ -129,3 +132,9 @@ MEDIA_URL = 'media/'
 MEDIA_ROOT = BASE_DIR / 'media'
 AUTH_USER_MODEL = 'registerpageapp.CustomUser'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+CSRF_TRUSTED_ORIGINS = [
+    "https://online-quiz-application-a5c6.onrender.com",
+    "http://localhost:8000",
+    "http://127.0.0.1:8000",
+]
