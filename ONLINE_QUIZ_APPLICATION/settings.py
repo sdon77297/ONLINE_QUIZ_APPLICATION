@@ -25,8 +25,7 @@ SECRET_KEY = 'django-insecure-hwdnzfdvx4#elg$!5p4ipp9fj(7jk)*ro%!&u)-+_og^292-=#
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1', 'localhost', 'testserver']
-
+ALLOWED_HOSTS = ["*"]
 
 # Application definition
 
@@ -84,12 +83,8 @@ WSGI_APPLICATION = 'ONLINE_QUIZ_APPLICATION.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'ONLINE_QUIZ_APPLICATION',
-        'USER': 'postgres',
-        'PASSWORD': 'admin',
-        'HOST': 'host.docker.internal',
-        'PORT': '5432',
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
 
